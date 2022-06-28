@@ -26,7 +26,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val password = findViewById<EditText>(R.id.loginPassword).text
 
                 val okHttpClient = OkHttpClient()
-                val url = "http://10.83.130.5:8080/v1/android/sign"
+                var url = "http://10.83.130.5:8080/v1/android/sign?name="
+                
                 val request = Request.Builder().url(url)
             }
         }
