@@ -41,9 +41,15 @@ dependencies {
     implementation "io.ktor:ktor-client-android:1.1.5"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc02"
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'//ConverterFactory的Gson依赖包
     implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'//ConverterFactory的String依赖包
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
 
     testImplementation 'junit:junit:4.13.2'

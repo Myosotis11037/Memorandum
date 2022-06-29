@@ -6,7 +6,7 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface LoginService {
-    @POST("v1/android/sign?name={name}&password={password}")
+    @POST("v1/android/sign")
     fun getLoginResponse(@Query("name") name: String, @Query("password") password: String): Call<LoginResponse>
 
 }
