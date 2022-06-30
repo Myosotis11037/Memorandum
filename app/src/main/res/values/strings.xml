@@ -4,4 +4,6 @@
     <string name="password_hint">密码</string>
     <string name="login_button">登录</string>
     <string name="copyright">Copyright @ linya</string>
+    <string name="addNoteMention">新建一条备忘录</string>
+    <string name="save_hint">保存</string>
 </resources>

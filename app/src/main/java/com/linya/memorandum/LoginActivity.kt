@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.linya.memorandum.db.DataBaseHelper
 import com.linya.memorandum.logic.model.LoginResponse
 import com.linya.memorandum.logic.network.LoginService
 import retrofit2.Call
@@ -20,13 +21,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
-        this.title = "我的备忘录"
+        this.title = "登录"
 
         findViewById<Button>(R.id.login_btn).setOnClickListener(this)
-
     }
-
-
 
     override fun onClick(v: View?){
         when(v?.id){
@@ -72,7 +70,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
                             }
                         }else{
-                            val intent = Intent(this@LoginActivity, MemoActivity::class.java)
+                            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                            val dbHelper = DataBaseHelper(this@LoginActivity, "note.db", 1)
+                            dbHelper.writableDatabase
                             startActivity(intent)
                         }
                     }
