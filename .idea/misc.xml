@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/rounded_gray_r15.xml" value="0.2495" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/activity_memo.xml" value="0.23229166666666667" />
+        <entry key="app/src/main/res/layout/activity_preview.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/activity_write_note.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/layout/core_base_list_layout.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/layout/item_note.xml" value="0.16236162361623616" />

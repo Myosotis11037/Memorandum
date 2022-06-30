@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Memorandum"
         tools:targetApi="31">
         <activity
+            android:name=".PreviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".WriteNoteActivity"
             android:exported="false" />
         <activity

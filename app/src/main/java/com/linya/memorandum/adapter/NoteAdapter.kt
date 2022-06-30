@@ -1,19 +1,22 @@
 package com.linya.memorandum.adapter//package com.linya.memorandum.adapter
 
-import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.linya.memorandum.PreviewActivity
 import com.linya.memorandum.R
 import com.linya.memorandum.db.SQLiteDB
 import com.linya.memorandum.entity.NoteBean
 import kotlinx.android.synthetic.main.item_note.view.*
 
-class NoteAdapter(private val noteList : MutableList<NoteBean>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
-    private val setOnClickListener : View.OnClickListener ?= null
+class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>(){
+
+    private val context : Context = con
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val note_title : TextView = view.findViewById(R.id.note_title)
@@ -45,6 +48,16 @@ class NoteAdapter(private val noteList : MutableList<NoteBean>) : RecyclerView.A
             noteList.removeAt(pos)
             notifyDataSetChanged()
         }
+
+        holder.itemView.setOnClickListener{
+            val pos = holder.absoluteAdapterPosition
+            val note = noteList[pos]
+            Toast.makeText(holder.itemView.context, "能够点击到item",Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, PreviewActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        
     }
 
     override fun getItemCount() = noteList.size
