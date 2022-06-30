@@ -65,12 +65,20 @@
                 android:layout_marginStart="@dimen/b25"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textColor="@color/color_gray_bbb"
+                android:textColor="@color/color_black"
                 android:textSize="@dimen/b30"
                 android:text="test"
                 tools:ignore="SpUsage" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/note_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_red"
+            android:text="删除"
+            android:layout_gravity="right"/>
     </LinearLayout>
 
 
