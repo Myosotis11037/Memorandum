@@ -79,9 +79,9 @@ class SQLiteDB constructor(private val context : Context) {
         return flag
     }
 
-    fun delNote(id: String): Boolean {
+    fun delNote(title: String): Boolean {
         var flag = false
-        var delete = mSQLiteDatabase?.delete("note", "note_id=?", arrayOf(id))
+        var delete = mSQLiteDatabase?.delete("note", "note_title=?", arrayOf(title))
         if (delete ?: 0 > 0) {
             flag = true
         }
