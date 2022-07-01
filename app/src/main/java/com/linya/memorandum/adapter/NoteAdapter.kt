@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.RecyclerView
+import com.linya.memorandum.MainActivity
 import com.linya.memorandum.PreviewActivity
 import com.linya.memorandum.R
 import com.linya.memorandum.db.SQLiteDB
@@ -46,6 +48,8 @@ class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) :
             Toast.makeText(holder.itemView.context, "删除成功！",Toast.LENGTH_SHORT).show()
             noteList.removeAt(pos)
             notifyDataSetChanged()
+            val intent = Intent(holder.itemView.context, MainActivity::class.java)
+            context.startActivity(intent)
         }
 
         holder.itemView.setOnClickListener{

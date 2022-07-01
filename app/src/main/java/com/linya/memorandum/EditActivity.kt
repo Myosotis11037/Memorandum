@@ -45,28 +45,39 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
         update_edit_content?.setText(content)
 
         update.setOnClickListener(this)
+        cancel.setOnClickListener(this)
 
     }
 
     override fun onClick(v: View?) {
-        val newTitle = update_edit_title.text.toString()
-        val newType = update_edit_type.text.toString()
-        val newContent = update_edit_content.text.toString()
+        when(v?.id){
+            R.id.update -> {
+                val newTitle = update_edit_title.text.toString()
+                val newType = update_edit_type.text.toString()
+                val newContent = update_edit_content.text.toString()
 
-        val newNote : NoteBean = NoteBean()
-        newNote.note_id = id
-        newNote.title = newTitle
-        newNote.type = newType
-        newNote.content = newContent
-        newNote.create_time = create_time
-        newNote.update_time = SimpleDateFormat("yyyy-MM-dd HH:mm").format(Date())
+                val newNote : NoteBean = NoteBean()
+                newNote.note_id = id
+                newNote.title = newTitle
+                newNote.type = newType
+                newNote.content = newContent
+                newNote.create_time = create_time
+                newNote.update_time = SimpleDateFormat("yyyy-MM-dd HH:mm").format(Date())
 
-        if(msqLiteDB?.updateNote(newNote)!!) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }else{
-            Toast.makeText(this, "保存失败！", Toast.LENGTH_SHORT).show()
+                if(msqLiteDB?.updateNote(newNote)!!) {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this, "保存失败！", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            R.id.cancel -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
+
 
     }
 }
