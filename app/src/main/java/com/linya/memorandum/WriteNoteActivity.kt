@@ -2,6 +2,7 @@ package com.linya.memorandum
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -20,6 +21,8 @@ class WriteNoteActivity : AppCompatActivity() , View.OnClickListener{
         setContentView(R.layout.activity_write_note)
 
         findViewById<Button>(R.id.add).setOnClickListener(this)
+
+        edit_content.movementMethod = ScrollingMovementMethod.getInstance()
     }
 
     override fun onClick(v: View?) {

@@ -3,6 +3,7 @@ package com.linya.memorandum
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -26,6 +27,8 @@ class PreviewActivity : AppCompatActivity() , View.OnClickListener{
         preview_content.setText(note?.content)
         preview_create_time.setText("创建时间：${note?.create_time}")
         preview_update_time.setText("更新时间：${note?.update_time}")
+
+        preview_content.movementMethod = ScrollingMovementMethod.getInstance()
 
         findViewById<TextView>(R.id.preview_content).setOnClickListener(this)
 

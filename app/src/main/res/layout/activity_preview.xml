@@ -34,6 +34,7 @@
             android:padding="@dimen/b20"
             android:text="这里是备忘录内容"
             android:textColor="@color/color_black"
+            android:scrollbars="vertical"
             android:textSize="@dimen/b40" />
     </LinearLayout>
 
