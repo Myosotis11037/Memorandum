@@ -23,15 +23,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         val layoutManager = LinearLayoutManager(this)
         noteBeanList.clear()
         noteBeanList.addAll(SQLiteDB.getInstance(this)?.getAllNotes()?:ArrayList())
-        note_count.text = String.format("共%s个备忘录",noteBeanList?.size)
+        note_count.text = String.format("共%s个备忘录",noteBeanList.size)
         mNoteAdapter = NoteAdapter(this, noteBeanList)
         core_list_view_id.layoutManager = layoutManager
         core_list_view_id.adapter = mNoteAdapter
 
         findViewById<ImageView>(R.id.add_note).setOnClickListener(this)
-
-
-
 
     }
 
@@ -43,6 +40,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        note_count.text = String.format("共%s个备忘录",noteBeanList.size)
+
     }
 
 }

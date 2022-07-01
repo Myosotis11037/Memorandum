@@ -10,7 +10,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_write_note"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -28,11 +28,12 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="This is the loginActivity!">
+            android:label="备忘录">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
