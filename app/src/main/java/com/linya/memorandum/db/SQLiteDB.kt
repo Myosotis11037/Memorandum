@@ -63,10 +63,30 @@ class SQLiteDB constructor(private val context : Context) {
 
     }
 
+    fun findNoteById(id : String): NoteBean?{
+        val noteBean = NoteBean()
+        val cursor = mSQLiteDatabase?.rawQuery(
+            "select * from note where note_id=?",
+            arrayOf(id)
+        )
+        if(cursor != null){
+            if(cursor.moveToFirst()){
+                noteBean.note_id = cursor.getString(cursor.getColumnIndexOrThrow("note_id"))
+                noteBean.title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
+                noteBean.type = cursor.getString(cursor.getColumnIndexOrThrow("type"))
+                noteBean.update_time = cursor.getString(cursor.getColumnIndexOrThrow("update_time"))
+                noteBean.create_time = cursor.getString(cursor.getColumnIndexOrThrow("create_time"))
+                noteBean.content = cursor.getString(cursor.getColumnIndexOrThrow("content"))
+            }
+        }
+        return noteBean
+    }
+
     fun updateNote(noteBean: NoteBean): Boolean{
         var flag = false
         var contentValues = ContentValues()
         contentValues.put("title", noteBean.title)
+        contentValues.put("type",noteBean.type)
         contentValues.put("content", noteBean.content)
         contentValues.put("update_time", noteBean.update_time)
         var update = mSQLiteDatabase?.update(

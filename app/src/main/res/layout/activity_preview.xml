@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreviewActivity">
+    android:background="@color/color_copper_crown"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/b20">
+
+        <TextView
+            android:id="@+id/preview_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/b20"
+            android:text="标题"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
+            android:textSize="@dimen/b70" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/b20">
+
+        <TextView
+            android:id="@+id/preview_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/b20"
+            android:text="这里是备忘录内容"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/b40" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/b20">
+
+        <TextView
+            android:id="@+id/preview_create_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/b20"
+            android:text="创建时间："
+            android:textColor="@color/color_gray_88"
+            android:textSize="@dimen/b30" />
+
+        <TextView
+            android:id="@+id/preview_update_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/b20"
+            android:text="最新编辑时间："
+            android:textColor="@color/color_gray_88"
+            android:textSize="@dimen/b30" />
+    </LinearLayout>
+
+</LinearLayout>

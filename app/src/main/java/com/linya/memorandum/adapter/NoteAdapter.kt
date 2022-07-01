@@ -30,7 +30,6 @@ class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) :
             .inflate(R.layout.item_note, parent, false)
         return ViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = noteList[position]
         holder.note_title.text = note.title
@@ -38,7 +37,7 @@ class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) :
         holder.note_update_time.text = note.update_time
         holder.note_content.text = note.content
 
-        holder.itemView.note_delete.setOnClickListener(){
+        holder.itemView.note_delete.setOnClickListener {
             val pos = holder.absoluteAdapterPosition
             val note = noteList[pos]
             val title = note.title
@@ -52,8 +51,8 @@ class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) :
         holder.itemView.setOnClickListener{
             val pos = holder.absoluteAdapterPosition
             val note = noteList[pos]
-            Toast.makeText(holder.itemView.context, "能够点击到item",Toast.LENGTH_SHORT).show()
             val intent = Intent(context, PreviewActivity::class.java)
+            intent.putExtra("id", note.note_id)
             context.startActivity(intent)
         }
 

@@ -24,8 +24,8 @@ class WriteNoteActivity : AppCompatActivity() , View.OnClickListener{
 
     override fun onClick(v: View?) {
 
-        var title = edit_title?.text.toString()
-        var content = edit_content?.text.toString()
+        val title = edit_title?.text.toString()
+        val content = edit_content?.text.toString()
         val date = Date()
         val addTime = SimpleDateFormat("yyyy-MM-dd HH:mm").format(date)
         val updateTime = SimpleDateFormat("yyyy-MM-dd HH:mm").format(date)

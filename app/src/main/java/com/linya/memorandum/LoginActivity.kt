@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             R.id.login_btn -> {
                 val username = findViewById<EditText>(R.id.loginAccount).text.toString()
                 val password = findViewById<EditText>(R.id.loginPassword).text.toString()
-                val retrofit = Retrofit.Builder().baseUrl("Http://10.83.130.5:8080/")
+                val retrofit = Retrofit.Builder().baseUrl("http://10.83.130.5:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 val loginService = retrofit.create(LoginService::class.java)
