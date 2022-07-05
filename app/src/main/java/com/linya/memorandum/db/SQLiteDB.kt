@@ -28,7 +28,7 @@ class SQLiteDB constructor(private val context : Context) {
 
     fun getAllNotes(): List<NoteBean>?{
         val noteBeans: MutableList<NoteBean> = ArrayList()
-        val cursor = mSQLiteDatabase?.query("note", arrayOf("note_id","title","type","update_time","create_time","content"),null,null,null,null,"type",null)
+        val cursor = mSQLiteDatabase?.query("note", arrayOf("note_id","title","type","update_time","create_time","content"),null,null,null,null,"update_time desc",null)
         if(cursor != null){
             while(cursor.moveToNext()){
                 val noteBean = NoteBean()
