@@ -15,9 +15,9 @@ import com.linya.memorandum.entity.NoteBean
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.core_base_list_layout.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener{
-    private val noteBeanList : MutableList<NoteBean> = ArrayList()
-    private var mNoteAdapter: NoteAdapter ?= null
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private val noteBeanList: MutableList<NoteBean> = ArrayList()
+    private var mNoteAdapter: NoteAdapter? = null
     private var isFirst = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,24 +37,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onResume() {
         super.onResume()
-        if(!isFirst) loadData()
+        if (!isFirst) loadData()
         isFirst = false
     }
 
-    override fun onClick(v : View?) {
-        when(v?.id){
+    override fun onClick(v: View?) {
+        when (v?.id) {
             //点击新增icon
-            R.id.add_note ->{
+            R.id.add_note -> {
                 val intent = Intent(this, WriteNoteActivity::class.java)
                 startActivity(intent)
             }
         }
     }
 
-    private fun loadData(){
+    private fun loadData() {
         noteBeanList.clear()
-        noteBeanList.addAll(SQLiteDB.getInstance(this)?.getAllNotes()?:ArrayList())
-        note_count.text = String.format("共%s个备忘录",noteBeanList.size)
+        noteBeanList.addAll(SQLiteDB.getInstance(this)?.getAllNotes() ?: ArrayList())
+        note_count.text = String.format("共%s个备忘录", noteBeanList.size)
     }
 
     @SuppressLint("NotifyDataSetChanged")
