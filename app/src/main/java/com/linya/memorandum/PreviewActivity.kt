@@ -54,4 +54,6 @@ class PreviewActivity : AppCompatActivity() , View.OnClickListener{
         Toast.makeText(this, "进入编辑模式",Toast.LENGTH_SHORT).show()
         startActivity(intent)
     }
+
+
 }
