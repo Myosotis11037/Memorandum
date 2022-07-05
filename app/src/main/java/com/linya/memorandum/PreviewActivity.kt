@@ -34,6 +34,20 @@ class PreviewActivity : AppCompatActivity() , View.OnClickListener{
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        id = intent.getStringExtra("id")
+        var sqLiteDB = SQLiteDB.getInstance(this)
+        val note : NoteBean? = sqLiteDB?.findNoteById(id!!)
+
+        preview_title.setText(note?.title)
+        preview_content.setText(note?.content)
+        preview_create_time.setText("创建时间：${note?.create_time}")
+        preview_update_time.setText("更新时间：${note?.update_time}")
+
+        preview_content.movementMethod = ScrollingMovementMethod.getInstance()
+    }
+
     override fun onClick(v: View?) {
         intent = Intent(this, EditActivity::class.java)
         intent.putExtra("id", id)

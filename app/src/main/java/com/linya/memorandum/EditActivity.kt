@@ -65,7 +65,8 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
                 newNote.update_time = SimpleDateFormat("yyyy-MM-dd HH:mm").format(Date())
 
                 if(msqLiteDB?.updateNote(newNote)!!) {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, PreviewActivity::class.java)
+                    intent.putExtra("id",newNote.note_id)
                     startActivity(intent)
                 }else{
                     Toast.makeText(this, "保存失败！", Toast.LENGTH_SHORT).show()
