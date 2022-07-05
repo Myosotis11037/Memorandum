@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/search"
-            android:paddingLeft="@dimen/b200"
-            android:layout_width="@dimen/b30"
+            android:paddingLeft="@dimen/b10"
+            android:layout_width="@dimen/b50"
             android:layout_height="@dimen/b30"
             android:layout_gravity="right|center_vertical"
             android:adjustViewBounds="true"
