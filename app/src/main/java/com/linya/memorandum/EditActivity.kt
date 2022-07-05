@@ -62,7 +62,7 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
                 newNote.type = newType
                 newNote.content = newContent
                 newNote.create_time = create_time
-                newNote.update_time = SimpleDateFormat("yyyy-MM-dd HH:mm").format(Date())
+                newNote.update_time = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Date())
 
                 if(msqLiteDB?.updateNote(newNote)!!) {
                     val intent = Intent(this, PreviewActivity::class.java)
