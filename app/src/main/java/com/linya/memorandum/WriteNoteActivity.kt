@@ -30,8 +30,8 @@ class WriteNoteActivity : AppCompatActivity() , View.OnClickListener{
         val title = edit_title?.text.toString()
         val content = edit_content?.text.toString()
         val date = Date()
-        val addTime = SimpleDateFormat("yyyy-MM-dd HH:mm").format(date)
-        val updateTime = SimpleDateFormat("yyyy-MM-dd HH:mm").format(date)
+        val addTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
+        val updateTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
         val type = edit_type?.text.toString()
         val note_id = date.time.toString()
 

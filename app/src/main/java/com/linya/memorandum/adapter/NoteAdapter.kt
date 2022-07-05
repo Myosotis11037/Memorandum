@@ -42,9 +42,9 @@ class NoteAdapter(con : Context, private val noteList : MutableList<NoteBean>) :
         holder.itemView.note_delete.setOnClickListener {
             val pos = holder.absoluteAdapterPosition
             val note = noteList[pos]
-            val title = note.title
+            val id = note.note_id
             var sqLiteDB = SQLiteDB.getInstance(holder.itemView.context)
-            sqLiteDB?.delNote(title!!)
+            sqLiteDB?.delNote(id!!)
             Toast.makeText(holder.itemView.context, "删除成功！",Toast.LENGTH_SHORT).show()
             noteList.removeAt(pos)
             notifyDataSetChanged()
