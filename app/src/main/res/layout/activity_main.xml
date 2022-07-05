@@ -8,12 +8,48 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/b60"
+        android:layout_margin="@dimen/b20"
+        android:layout_marginBottom="@dimen/b20"
+        android:background="@drawable/rounded_gray_r15"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/b30"
+        android:paddingRight="@dimen/b30">
+
+        <EditText
+            android:id="@+id/edit_search_context"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="输入搜索的备忘录类别"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLength="20"
+            android:textColorHint="@color/color_gray_c0"
+            android:textSize="@dimen/b24" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="@dimen/b30"
+            android:layout_height="@dimen/b30"
+            android:layout_gravity="right|center_vertical"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/search_search" />
+
+    </FrameLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/b1"
         android:layout_marginLeft="@dimen/b20"
         android:layout_marginRight="@dimen/b20"
         android:background="@color/color_line" />
+
 
     <include
         layout="@layout/core_base_list_layout"

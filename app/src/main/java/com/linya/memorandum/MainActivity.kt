@@ -2,6 +2,7 @@ package com.linya.memorandum
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         findViewById<ImageView>(R.id.add_note).setOnClickListener(this)
+        findViewById<ImageView>(R.id.search).setOnClickListener(this)
 
     }
 
@@ -47,6 +49,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.add_note -> {
                 val intent = Intent(this, WriteNoteActivity::class.java)
                 startActivity(intent)
+            }
+
+            //点击搜索
+            R.id.search -> {
+                val type = edit_search_context.text.toString()
+                if(type == ""){
+                    loadData()
+                    mNoteAdapter = NoteAdapter(this, noteBeanList)
+                    mNoteAdapter!!.notifyDataSetChanged()
+                    core_list_view_id.layoutManager = LinearLayoutManager(this)
+                    core_list_view_id.adapter = mNoteAdapter
+                }else{
+                    noteBeanList.clear()
+                    noteBeanList.addAll(SQLiteDB.getInstance(this)?.getAllNotesByType(type) ?: ArrayList())
+                    note_count.text = String.format("共%s个备忘录", noteBeanList.size)
+                    mNoteAdapter = NoteAdapter(this, noteBeanList)
+                    mNoteAdapter!!.notifyDataSetChanged()
+                    core_list_view_id.layoutManager = LinearLayoutManager(this)
+                    core_list_view_id.adapter = mNoteAdapter
+                }
+
             }
         }
     }

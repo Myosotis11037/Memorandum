@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.linya.memorandum.entity.NoteBean
+import kotlinx.coroutines.sync.Mutex
 
 class SQLiteDB constructor(private val context : Context) {
     init{
@@ -42,6 +43,30 @@ class SQLiteDB constructor(private val context : Context) {
             }
         }
         return noteBeans
+    }
+
+    fun getAllNotesByType(type : String) : List<NoteBean>?{
+        val noteBeans: MutableList<NoteBean> = ArrayList()
+        val cursor = mSQLiteDatabase?.rawQuery(
+            "select * from note where type=?",
+            arrayOf(type)
+        )
+
+        if(cursor != null){
+            while(cursor.moveToNext()){
+                val noteBean = NoteBean()
+                noteBean.note_id = cursor.getString(cursor.getColumnIndexOrThrow("note_id"))
+                noteBean.title = cursor.getString(cursor.getColumnIndexOrThrow("title"))
+                noteBean.type = cursor.getString(cursor.getColumnIndexOrThrow("type"))
+                noteBean.update_time = cursor.getString(cursor.getColumnIndexOrThrow("update_time"))
+                noteBean.create_time = cursor.getString(cursor.getColumnIndexOrThrow("create_time"))
+                noteBean.content = cursor.getString(cursor.getColumnIndexOrThrow("content"))
+                noteBeans.add(noteBean)
+            }
+        }
+
+        return noteBeans
+
     }
 
     fun addNote(noteBean: NoteBean):Boolean{
