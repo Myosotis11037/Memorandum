@@ -74,6 +74,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                             val intent = Intent(this@LoginActivity, MainActivity::class.java)
                             val dbHelper = DataBaseHelper(this@LoginActivity, "note.db", 1)
                             dbHelper.writableDatabase
+                            finish()
                             startActivity(intent)
                         }
                     }
